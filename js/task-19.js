@@ -7,20 +7,32 @@ const products = [
 
 function getAllPropValues(propName) {
   // Пиши код ниже этой строки
+
   const arrayValues = [];
+  let productKeys;
   for (const product of products) {
-    if (product.name) {
-        arrayValues.push(product.name);
-        return arrayValues
+    // console.log(product)
+    productKeys = Object.keys(product);
+    console.log(productKeys)
+
+    for (const key of productKeys) {
+      if (key === propName) {
+       arrayValues.push(product[key]);
+      }
     }
-    if ( product.price) {
-        arrayValues.push(product.price);
-        return arrayValues;
-    }
-    if (product.quantity) {
-        arrayValues.push(product.quantity);
-        return arrayValues
-    }
+    // console.log(product.name)
+    // if (product === propName) {
+    //     arrayValues.push(product.name);
+    //     // return arrayValues
+    // }
+    // if ( product === products.price) {
+    //     arrayValues.push(products[product]);
+    //     // return arrayValues;
+    // }
+    // if (product === products.quantity) {
+    //     arrayValues.push(products[product]);
+    //     // return arrayValues
+    // }
     return arrayValues;
   }
   

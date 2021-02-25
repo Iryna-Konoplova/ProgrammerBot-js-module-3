@@ -21,61 +21,44 @@ const stonesObject = {
   crushedStone: { price: 200, quantity: 2 },
 };
 
-const keys = Object.keys(stonesObject);
-console.log(keys);
-
-const values = Object.values(stonesObject);
-console.log(values);
-
-let totalPrice;
-
 
 const calcTotalPrice = (stonesObject, stoneName) => {
-    let currentStone;
 
+    const keys = Object.keys(stonesObject);
+
+    if (!stonesObject) {
+         return 'Не хватает данных для выполнения операции';
+    }
+
+     if (!keys.length) {
+         return 'Не хватает данных для выполнения операции';
+    }
+
+     if (!stoneName) {
+         return 'Не указано название камня';
+     }
+    
     for (let key of keys) {
 
         if (key === stoneName) {
-            currentStone = key;
-            break;   
-
-//                for (let value of values) {
-//             totalPrice = value.price * value.quantity;
-            
-            
-}
-                
-             }
-
-     
+            return stonesObject[key].price * stonesObject[key].quantity;
+        } 
+    }
       
-//         return totalPrice;
-//     }
-    
-
-    return stonesObject.currentStone.price * stonesObject.currentStone.quantity;
-    
+   return 'Камня с таким названием нет';
 }
+
 
 console.log(calcTotalPrice(stonesObject, 'emerald'));
+console.log(calcTotalPrice(stonesObject, 'diamond'));
+console.log(calcTotalPrice(stonesObject, 'sapphire'));
+console.log(calcTotalPrice(stonesObject, 'crushedStone'));
+console.log(calcTotalPrice(0, 'crushedStone'));
+console.log(calcTotalPrice(stonesObject,));
+console.log(calcTotalPrice(stonesObject, 'hghgjgjh'));
 
 
 
-// function countProps(object) {
-//   let propCount = 0;
-//   // Пиши код ниже этой строки
-  
-//   for (const key in object) {
-  
-//  if (object.hasOwnProperty(key)) {
-//   propCount += 1;
-//  }
-    
-//   }
-
-//   // Пиши код выше этой строки
-//   return propCount;
-// }
 
 
 
@@ -83,6 +66,7 @@ console.log(calcTotalPrice(stonesObject, 'emerald'));
 /**
  * Func that returns total price from array by name
  *  Функция, которая возвращает общую цену из массива по имени
+ * решали на занятии
  */
 
 // const calcTotalPrice = (stones, stoneName) => {
