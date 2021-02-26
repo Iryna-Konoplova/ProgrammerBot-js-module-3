@@ -1,3 +1,11 @@
+// Напиши функцию getAllPropValues(propName) которая принимает один
+// параметр propName - имя(ключ) свойства.Функция должна вернуть массив
+// всех значений свойства с таким именем из каждого объекта в массиве
+// products.Если в объектах нет свойства с таким именем, функция должна
+// вернуть пустой массив.
+
+
+
 const products = [
   { name: 'Радар', price: 1300, quantity: 4 },
   { name: 'Сканер', price: 2700, quantity: 3 },
@@ -10,36 +18,20 @@ function getAllPropValues(propName) {
 
   const arrayValues = [];
   let productKeys;
+
   for (const product of products) {
-    // console.log(product)
     productKeys = Object.keys(product);
-    console.log(productKeys)
 
     for (const key of productKeys) {
-      if (key === propName) {
+       if (key === propName) {
        arrayValues.push(product[key]);
       }
     }
-    // console.log(product.name)
-    // if (product === propName) {
-    //     arrayValues.push(product.name);
-    //     // return arrayValues
-    // }
-    // if ( product === products.price) {
-    //     arrayValues.push(products[product]);
-    //     // return arrayValues;
-    // }
-    // if (product === products.quantity) {
-    //     arrayValues.push(products[product]);
-    //     // return arrayValues
-    // }
-    return arrayValues;
   }
   
-  
+  return arrayValues;
   // Пиши код выше этой строки
 }
-
 
 
 console.log(getAllPropValues('name'));
