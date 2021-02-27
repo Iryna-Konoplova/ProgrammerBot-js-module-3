@@ -24,11 +24,11 @@ const stonesObject = {
 
 const calcTotalPrice = (stonesObject, stoneName) => {
 
-    const keys = Object.keys(stonesObject);
-
     if (!stonesObject) {
          return 'Не хватает данных для выполнения операции';
     }
+
+    const keys = Object.keys(stonesObject);
 
      if (!keys.length) {
          return 'Не хватает данных для выполнения операции';
@@ -44,6 +44,10 @@ const calcTotalPrice = (stonesObject, stoneName) => {
             return stonesObject[key].price * stonesObject[key].quantity;
         } 
     }
+
+    // if (stonesObject.hasOwnProperty(stoneName)) {
+    //      return stonesObject[key].price * stonesObject[key].quantity;
+    // }
       
    return 'Камня с таким названием нет';
 }
